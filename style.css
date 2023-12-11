@@ -1,0 +1,32 @@
+@font-face {
+    font-family: 'monofur';
+    src: url('fonts/monofur/monof55.ttf') format('truetype'),
+         url('fonts/monofur/monof56.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.inline-element {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 10px;
+}
+
+p, span, label, h1 {
+    font-family: 'monofur', arial;
+}
+
+table {
+    table-layout: fixed;
+}
+
+th, td {
+    text-align: center;
+    font-family: 'monofur', arial;
+    width: 96px;
+}
+
+textarea {
+    resize: none;
+    font-family: 'monofur', arial;
+}

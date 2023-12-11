@@ -2,28 +2,355 @@
 <html>
     <head>
         <title>Fichas</title>
-        <style>
-            @font-face {
-                font-family: 'monofur';
-                src: url('fonts/monofur/monof55.ttf') format('truetype'),
-                     url('fonts/monofur/monof56.ttf') format('truetype');
-                font-weight: normal;
-                font-style: normal;
-            }
-
-            p {
-                font-family: 'monofur', arial;
-            }
-        </style>
+        <link rel="stylesheet" type="text/css" href="style.css">
     </head>
     <body>
         <div style="display: flex; text-align: justify;">
             <div style="flex: 1; margin-right: 10px; white-space: pre-line;">
-                <p>Raça</p>
+                <form>
+                    <textarea id="raca" name="raca" rows="1" cols="12" maxlength="24">Raça</textarea>
+                </form>
             </div>
             <div style="flex: 1; margin-left: 10px; white-space: pre-line;">
                 <p>{{date}}</p>
             </div>
         </div>
+        <div style="display: flex; text-align: justify;">
+            <div style="flex: 1; margin-right: 10px; white-space: pre-line;">
+                <span>Nível de Perigo:</span><span> 0 + </span><form class="inline-element"><textarea id="nivelPerigo" name="nivelPerigo" rows="1" cols="4" maxlength="4">0</textarea></form><span> = 0</span>
+                <span>Defesa:</span><form class="inline-element"><textarea id="defesa" name="defesa" rows="1" cols="8" maxlength="8">10 + AGI</textarea></form>
+                
+                <span>Vida:</span><form class="inline-element"><textarea id="vida" name="vida" rows="1" cols="4" maxlength="4">20</textarea></form><span>/ </span><form class="inline-element"><textarea id="vidaMax" name="vidaMax" rows="1" cols="4" maxlength="4">20</textarea></form>
+            </div>
+            <div style="flex: 1; margin-left: 10px; white-space: pre-line;">
+                <span>Movimento:</span><form class="inline-element"><textarea id="movimento" name="movimento" rows="1" cols="4" maxlength="4">9m</textarea></form>
+                <span>Resistência a Danos:</span><form class="inline-element"><textarea id="resistência" name="resistência" rows="1" cols="4" maxlength="4">0</textarea></form>
+                
+                <span>Tolerância:</span><form class="inline-element"><textarea id="tolerancia" name="tolerancia" rows="1" cols="4" maxlength="4">20</textarea></form><span>/ </span><form class="inline-element"><textarea id="toleranciaMax" name="toleranciaMax" rows="1" cols="4" maxlength="4">20</textarea></form>
+            </div>
+        </div>
+
+        <div style="display: flex; text-align: center;">
+            <div style="flex: 1; margin-right: 10px; white-space: pre-line;">
+            <span style="color:#ff7a7a">Força (FOR)</span>
+            <form class="inline-element"><textarea id="forca" name="forca" rows="1" cols="2" maxlength="2">0</textarea></form>
+            </div>
+            <div style="flex: 1; margin-left: 10px; margin-right: 10px; white-space: pre-line;">
+            <span style="color:#ffd57a">Agilidade (AGI)</span>
+            <form class="inline-element"><textarea id="forca" name="forca" rows="1" cols="2" maxlength="2">0</textarea></form>
+            </div>
+            <div style="flex: 1; margin-left: 10px; margin-right: 10px; white-space: pre-line;">
+            <span style="color:#91ff7a">Mente (MEN)</span>
+            <form class="inline-element"><textarea id="forca" name="forca" rows="1" cols="2" maxlength="2">0</textarea></form>
+            </div>
+            <div style="flex: 1; margin-left: 10px; white-space: pre-line;">
+            <span style="color:#7abdff">Social (SOC)</span>
+            <form class="inline-element"><textarea id="forca" name="forca" rows="1" cols="2" maxlength="2">0</textarea></form>
+            </div>
+        </div>
+
+        <div style="display: flex; text-align: justify;">
+            <div style="flex: 1.1; margin-right: 10px; white-space: pre-line;">
+                <table>
+                    <tr>
+                        <th>Atributo</th>
+                        <th>Perícia</th>
+                        <th>Conhecimento</th>
+                        <th>Outros</th>
+                        <th>Total</th>
+                    </tr>
+                    <tr>
+                        <td><span>(<span style="color:#ffd57a">AGI</span>)</span></td>
+                        <td><span>Acrobacia</span></td>
+                        <td><form class="inline-element"><textarea id="acrobacia" name="acrobacia" rows="1" cols="2" maxlength="2">0</textarea></form></td>
+                        <td><form class="inline-element"><textarea id="acrobacia" name="acrobacia" rows="1" cols="2" maxlength="2">0</textarea></form></td>
+                        <td><span>0</span></td>
+                    </tr>
+                    <tr>
+                        <td><span>(<span style="color:#7abdff">SOC</span>)</span></td>
+                        <td><span>Adestramento</span></td>
+                        <td><form class="inline-element"><textarea id="adestramento" name="adestramento" rows="1" cols="2" maxlength="2">0</textarea></form></td>
+                        <td><form class="inline-element"><textarea id="adestramento" name="adestramento" rows="1" cols="2" maxlength="2">0</textarea></form></td>
+                        <td><span>0</span></td>
+                    </tr>
+                    <tr>
+                        <td><span>(<span style="color:#91ff7a">MEN</span>)</span></td>
+                        <td><span>Artes</span></td>
+                        <td><form class="inline-element"><textarea id="artes" name="artes" rows="1" cols="2" maxlength="2">0</textarea></form></td>
+                        <td><form class="inline-element"><textarea id="artes" name="artes" rows="1" cols="2" maxlength="2">0</textarea></form></td>
+                        <td><span>0</span></td>
+                    </tr>
+                    <tr>
+                        <td><span>(<span style="color:#ff7a7a">FOR</span>)</span></td>
+                        <td><span>Briga</span></td>
+                        <td><form class="inline-element"><textarea id="briga" name="briga" rows="1" cols="2" maxlength="2">0</textarea></form></td>
+                        <td><form class="inline-element"><textarea id="briga" name="briga" rows="1" cols="2" maxlength="2">0</textarea></form></td>
+                        <td><span>0</span></td>
+                    </tr>
+                    <tr>
+                        <td><span>(<span style="color:#91ff7a">MEN</span>)</span></td>
+                        <td><span>Constituição</span></td>
+                        <td><form class="inline-element"><textarea id="constituicao" name="constituicao" rows="1" cols="2" maxlength="2">0</textarea></form></td>
+                        <td><form class="inline-element"><textarea id="constituicao" name="constituicao" rows="1" cols="2" maxlength="2">0</textarea></form></td>
+                        <td><span>0</span></td>
+                    </tr>
+                    <tr>
+                        <td><span>(<span style="color:#ffd57a">AGI</span>)</span></td>
+                        <td><span>Crime</span></td>
+                        <td><form class="inline-element"><textarea id="crime" name="crime" rows="1" cols="2" maxlength="2">0</textarea></form></td>
+                        <td><form class="inline-element"><textarea id="crimeOutros" name="crimeOutros" rows="1" cols="2" maxlength="2">0</textarea></form></td>
+                        <td><span>0</span></td>
+                    </tr>
+                    <tr>
+                        <td><span>(<span style="color:#7abdff">SOC</span>)</span></td>
+                        <td><span>Discussão</span></td>
+                        <td><form class="inline-element"><textarea id="discussao" name="discussao" rows="1" cols="2" maxlength="2">0</textarea></form></td>
+                        <td><form class="inline-element"><textarea id="discussaoOutros" name="discussaoOutros" rows="1" cols="2" maxlength="2">0</textarea></form></td>
+                        <td><span>0</span></td>
+                    </tr>
+                    <tr>
+                        <td><span>(<span style="color:#7abdff">SOC</span>)</span></td>
+                        <td><span>Enganação</span></td>
+                        <td><form class="inline-element"><textarea id="enganacao" name="enganacao" rows="1" cols="2" maxlength="2">0</textarea></form></td>
+                        <td><form class="inline-element"><textarea id="enganacaoOutros" name="enganacaoOutros" rows="1" cols="2" maxlength="2">0</textarea></form></td>
+                        <td><span>0</span></td>
+                    </tr>
+                    <tr>
+                        <td><span>(<span style="color:#ff7a7a">FOR</span>)</span></td>
+                        <td><span>Resistência</span></td>
+                        <td><form class="inline-element"><textarea id="resistencia" name="resistencia" rows="1" cols="2" maxlength="2">0</textarea></form></td>
+                        <td><form class="inline-element"><textarea id="resistenciaOutros" name="resistenciaOutros" rows="1" cols="2" maxlength="2">0</textarea></form></td>
+                        <td><span>0</span></td>
+                    </tr>
+                    <tr>
+                        <td><span>(<span style="color:#ff7a7a">FOR</span>)</span></td>
+                        <td><span>Físico</span></td>
+                        <td><form class="inline-element"><textarea id="fisico" name="fisico" rows="1" cols="2" maxlength="2">0</textarea></form></td>
+                        <td><form class="inline-element"><textarea id="fisicoOutros" name="fisicoOutros" rows="1" cols="2" maxlength="2">0</textarea></form></td>
+                        <td><span>0</span></td>
+                    </tr>
+                    <tr>
+                        <td><span>(<span style="color:#ffd57a">AGI</span>)</span></td>
+                        <td><span>Furtividade</span></td>
+                        <td><form class="inline-element"><textarea id="furtividade" name="furtividade" rows="1" cols="2" maxlength="2">0</textarea></form></td>
+                        <td><form class="inline-element"><textarea id="furtividadeOutros" name="furtividadeOutros" rows="1" cols="2" maxlength="2">0</textarea></form></td>
+                        <td><span>0</span></td>
+                    </tr>
+                    <tr>
+                        <td><span>(<span style="color:#7abdff">SOC</span>)</span></td>
+                        <td><span>Intimidação</span></td>
+                        <td><form class="inline-element"><textarea id="intimidacao" name="intimidacao" rows="1" cols="2" maxlength="2">0</textarea></form></td>
+                        <td><form class="inline-element"><textarea id="intimidacaoOutros" name="intimidacaoOutros" rows="1" cols="2" maxlength="2">0</textarea></form></td>
+                        <td><span>0</span></td>
+                    </tr>
+                </table>
+            </div>
+            <div style="flex: 1.1; margin-left: 10px; white-space: pre-line;">
+                <table>
+                    <tr>
+                        <th>Atributo</th>
+                        <th>Perícia</th>
+                        <th>Conhecimento</th>
+                        <th>Outros</th>
+                        <th>Total</th>
+                    </tr>
+                    <tr>
+                        <td><span>(<span style="color:#91ff7a">MEN</span>)</span></td>
+                        <td><span>Intuição</span></td>
+                        <td><form class="inline-element"><textarea id="intuicao" name="intuicao" rows="1" cols="2" maxlength="2">0</textarea></form></td>
+                        <td><form class="inline-element"><textarea id="intuicaoOutros" name="intuicaoOutros" rows="1" cols="2" maxlength="2">0</textarea></form></td>
+                        <td><span>0</span></td>
+                    </tr>
+                    <tr>
+                        <td><span>(<span style="color:#91ff7a">MEN</span>)</span></td>
+                        <td><span>Investigação</span></td>
+                        <td><form class="inline-element"><textarea id="investigacao" name="investigacao" rows="1" cols="2" maxlength="2">0</textarea></form></td>
+                        <td><form class="inline-element"><textarea id="investigacaoOutros" name="investigacaoOutros" rows="1" cols="2" maxlength="2">0</textarea></form></td>
+                        <td><span>0</span></td>
+                    </tr>
+                    <tr>
+                        <td><span>(<span style="color:#91ff7a">MEN</span>)</span></td>
+                        <td><span>Medicina</span></td>
+                        <td><form class="inline-element"><textarea id="medicina" name="medicina" rows="1" cols="2" maxlength="2">0</textarea></form></td>
+                        <td><form class="inline-element"><textarea id="medicinaOutros" name="medicinaOutros" rows="1" cols="2" maxlength="2">0</textarea></form></td>
+                        <td><span>0</span></td>
+                    </tr>
+                    <tr>
+                        <td><span>(<span style="color:#91ff7a">MEN</span>)</span></td>
+                        <td><span>Magia</span></td>
+                        <td><form class="inline-element"><textarea id="magia" name="magia" rows="1" cols="2" maxlength="2">0</textarea></form></td>
+                        <td><form class="inline-element"><textarea id="magiaOutros" name="magiaOutros" rows="1" cols="2" maxlength="2">0</textarea></form></td>
+                        <td><span>0</span></td>
+                    </tr>
+                    <tr>
+                        <td><span>(<span style="color:#91ff7a">MEN</span>)</span></td>
+                        <td><span>Percepção</span></td>
+                        <td><form class="inline-element"><textarea id="percepcao" name="percepcao" rows="1" cols="2" maxlength="2">0</textarea></form></td>
+                        <td><form class="inline-element"><textarea id="percepcaoOutros" name="percepcaoOutros" rows="1" cols="2" maxlength="2">0</textarea></form></td>
+                        <td><span>0</span></td>
+                    </tr>
+                    <tr>
+                        <td><span>(<span style="color:#91ff7a">MEN</span>)</span></td>
+                        <td><span>Tática</span></td>
+                        <td><form class="inline-element"><textarea id="tatica" name="tatica" rows="1" cols="2" maxlength="2">0</textarea></form></td>
+                        <td><form class="inline-element"><textarea id="taticaOutros" name="taticaOutros" rows="1" cols="2" maxlength="2">0</textarea></form></td>
+                        <td><span>0</span></td>
+                    </tr>
+                    <tr>
+                        <td><span>(<span style="color:#ffd57a">AGI</span>)</span></td>
+                        <td><span>Pontaria</span></td>
+                        <td><form class="inline-element"><textarea id="pontaria" name="pontaria" rows="1" cols="2" maxlength="2">0</textarea></form></td>
+                        <td><form class="inline-element"><textarea id="pontariaOutros" name="pontariaOutros" rows="1" cols="2" maxlength="2">0</textarea></form></td>
+                        <td><span>0</span></td>
+                    </tr>
+                    <tr>
+                        <td><span>(<span style="color:#ffd57a">AGI</span>)</span></td>
+                        <td><span>Reflexos</span></td>
+                        <td><form class="inline-element"><textarea id="reflexos" name="reflexos" rows="1" cols="2" maxlength="2">0</textarea></form></td>
+                        <td><form class="inline-element"><textarea id="reflexosOutros" name="reflexosOutros" rows="1" cols="2" maxlength="2">0</textarea></form></td>
+                        <td><span>0</span></td>
+                    </tr>
+                    <tr>
+                        <td><span>(<span style="color:#91ff7a">MEN</span>)</span></td>
+                        <td><span>Religião</span></td>
+                        <td><form class="inline-element"><textarea id="religiao" name="religiao" rows="1" cols="2" maxlength="2">0</textarea></form></td>
+                        <td><form class="inline-element"><textarea id="religiaoOutros" name="religiaoOutros" rows="1" cols="2" maxlength="2">0</textarea></form></td>
+                        <td><span>0</span></td>
+                    </tr>
+                    <tr>
+                        <td><span>(<span style="color:#91ff7a">MEN</span>)</span></td>
+                        <td><span>Tecnologia</span></td>
+                        <td><form class="inline-element"><textarea id="tecnologia" name="tecnologia" rows="1" cols="2" maxlength="2">0</textarea></form></td>
+                        <td><form class="inline-element"><textarea id="tecnologiaOutros" name="tecnologiaOutros" rows="1" cols="2" maxlength="2">0</textarea></form></td>
+                        <td><span>0</span></td>
+                    </tr>
+                    <tr>
+                        <td><span>(<span style="color:#91ff7a">MEN</span>)</span></td>
+                        <td><span>História</span></td>
+                        <td><form class="inline-element"><textarea id="historia" name="historia" rows="1" cols="2" maxlength="2">0</textarea></form></td>
+                        <td><form class="inline-element"><textarea id="historiaOutros" name="historiaOutros" rows="1" cols="2" maxlength="2">0</textarea></form></td>
+                        <td><span>0</span></td>
+                    </tr>
+                    <tr>
+                        <td><span>(<span style="color:#91ff7a">MEN</span>)</span></td>
+                        <td><span>Memória</span></td>
+                        <td><form class="inline-element"><textarea id="memoria" name="memoria" rows="1" cols="2" maxlength="2">0</textarea></form></td>
+                        <td><form class="inline-element"><textarea id="memoriaOutros" name="memoriaOutros" rows="1" cols="2" maxlength="2">0</textarea></form></td>
+                        <td><span>0</span></td>
+                    </tr>
+                </table>                
+            </div>
+        </div>
+
+        <span>Espaço: </span>
+        <form class="inline-element"><textarea id="espaco" name="espaco", rows="1", cols="4", maxlength="4">0</textarea></form>
+        <span>/ </span>
+        <form class="inline-element"><textarea id="espacoMax" name="espacoMax", rows="1", cols="8", maxlength="8">FOR x 5</textarea></form>
+
+        <table>
+            <tr>
+                <th>Armas</th>
+                <th>Armaduras</th>
+                <th>Poções</th>
+                <th>Geral</th>
+            </tr>
+            <tr>
+                <td style="vertical-align: top;">
+                    <input text="Nome do Item" id="armasInput" placeholder="Adiciona um item">
+                    <button onclick="addWeapon()">Adicionar</button>
+                    <ul id="armasInventario"></ul>
+
+                    <script>
+                        function addWeapon() {
+                            var armasInput = document.getElementById("armasInput");
+                            var armasInventario = document.getElementById("armasInventario");
+                            addItem(armasInput, armasInventario)
+                        }
+                    </script>
+                </td>
+                <td style="vertical-align: top;">
+                    <input text="Nome do Item" id="armadurasInput" placeholder="Adiciona um item">
+                    <button onclick="addArmor()">Adicionar</button>
+                    <ul id="armadurasInventario"></ul>
+
+                    <script>
+                        function addArmor() {
+                            var armadurasInput = document.getElementById("armadurasInput");
+                            var armadurasInventario = document.getElementById("armadurasInventario");
+                            addItem(armadurasInput, armadurasInventario)
+                        }
+                    </script>
+                </td>
+                <td style="vertical-align: top;">
+                    <input text="Nome do Item" id="pocoesInput" placeholder="Adiciona um item">
+                    <button onclick="addPotion()">Adicionar</button>
+                    <ul id="pocoesInventario"></ul>
+
+                    <script>
+                        function addPotion() {
+                            var pocoesInput = document.getElementById("pocoesInput");
+                            var pocoesInventario = document.getElementById("pocoesInventario");
+                            addItem(pocoesInput, pocoesInventario)
+                        }
+                    </script>
+                </td>
+                <td style="vertical-align: top;">
+                    <input text="Nome do Item" id="geralInput" placeholder="Adiciona um item">
+                    <button onclick="addOther()">Adicionar</button>
+                    <ul id="geralInventario"></ul>
+
+                    <script>
+                        function addOther() {
+                            var geralInput = document.getElementById("geralInput");
+                            var geralInventario = document.getElementById("geralInventario");
+                            addItem(geralInput, geralInventario)
+                        }
+                    </script>
+                </td>
+            </tr>
+        </table>
+
+        <script>
+            function addItem(input, inventory) {
+                var newItem = input.value;
+
+                if (newItem) {
+                    var li = document.createElement("li");
+                    li.textContent = newItem;
+
+                    var removeButtom = document.createElement("button");
+                    removeButtom.textContent = "Remover"
+                    removeButtom.onclick = function() {
+                        li.remove();
+                    };
+
+                    li.appendChild(removeButtom);
+
+                    inventory.appendChild(li);
+                    input.value = "";
+                }
+            }
+        </script>
+
+        <span>Classe: </span><form class="inline-element"><textarea id="classe" name="classe" rows="1" cols="32" maxlength="32">Nenhuma</textarea></form>
+        <p>Habilidades:</p>
+        <input text="Nome da Habilidade" id="habilidadeInput" placeholder="Adicionar uma habilidade">
+        <button onclick="addSkill()">Adicionar</button>
+        <ul id="habilidadeInventario"></ul>
+
+        <script>
+            function addSkill() {
+                var habilidadeInput = document.getElementById("habilidadeInput");
+                var habilidadeInventario = document.getElementById("habilidadeInventario");
+                addItem(habilidadeInput, habilidadeInventario)
+            }
+        </script>
+
+        <h1>História</h1>
+        <form class="inline-element"><textarea id="historia" name="historia" rows="24" cols="128">Escreva a história do seu personagem até o começo da campanha</textarea></form>
+        <h1>Aparência</h1>
+        <form class="inline-element"><textarea id="historia" name="historia" rows="24" cols="128">Descreva a aparência física do seu personagem</textarea></form>
+        <h1>Personalidade</h1>
+        <form class="inline-element"><textarea id="historia" name="historia" rows="24" cols="128">Descreva como seu personagem se comporta</textarea></form>
     </body>
 </html>
