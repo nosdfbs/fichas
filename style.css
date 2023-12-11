@@ -6,12 +6,6 @@
     font-style: normal;
 }
 
-.inline-element {
-    display: inline-block;
-    vertical-align: middle;
-    margin-right: 10px;
-}
-
 p, span, label, h1 {
     font-family: 'monofur', arial;
 }
@@ -29,4 +23,7 @@ th, td {
 textarea {
     resize: none;
     font-family: 'monofur', arial;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 10px;
 }
