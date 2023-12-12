@@ -9,6 +9,10 @@
         <button onclick="Save()" type="submit">Salvar</button>
 
         <script>
+            function generateUniqueId() {
+                return Date.now().toString(36) + Math.random().toString(36).substring(2);
+            }
+
             function Save() {
                 var form = document.getElementById('characterForm');
                 var formData = new FormData(form);
@@ -18,20 +22,44 @@
                     characterSheet[pair[0]] = pair[1];
                 }
 
-                localStorage.setItem('fichaRPG', JSON.stringify(characterSheet));
+                var sheetId = generateUniqueId();
+                localStorage.setItem(sheetId, JSON.stringify(characterSheet));
+
+                // Save the sheetId in a list of saved sheets
+                var savedSheets = JSON.parse(localStorage.getItem('savedSheets')) || [];
+                savedSheets.push(sheetId);
+                localStorage.setItem('savedSheets', JSON.stringify(savedSheets));
             }
 
             function Load() {
-                var characterSheet = JSON.parse(localStorage.getItem('fichaRPG'));
+                var savedSheets = JSON.parse(localStorage.getItem('savedSheets'));
+                if (savedSheets) {
+                    var select = document.createElement('select');
+                    select.id = 'SelectCharacterSheetLoad';
+                    select.name = 'Select a sheet';
+                    select.onchange = function() {
+                        loadSelectedSheet(this.value);
+                    };
+
+                    savedSheets.forEach(function(sheetId) {
+                        var option = document.createElement('option');
+                        option.value = sheetId;
+                        option.text = sheetId; // Você pode modificar para mostrar um nome mais amigável se tiver
+                        select.append(option);
+                    });
+
+                    document.body.appendChild(select);
+                }
+            }
+
+            function loadSelectedSheet(sheetId) {
+                var characterSheet = JSON.parse(localStorage.getItem(sheetId));
                 if (characterSheet) {
-                    // Loop through each key in the characterSheet object
+                    // Aqui você carrega os dados de volta ao formulário
                     for (var key in characterSheet) {
-                        // Find the element that has the ID matching the current key
-                        var element = document.getElementById(key);
-                        
-                        // If the element exists, set its value
-                        if (element) {
-                            element.value = characterSheet[key];
+                        var input = document.getElementById(key);
+                        if (input) {
+                            input.value = characterSheet[key];
                         }
                     }
                 }
